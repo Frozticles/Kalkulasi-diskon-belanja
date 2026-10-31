@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hitung Diskon Belanja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+
+    <header class="hero">
+      <div class="tag-icon" aria-hidden="true">%</div>
+      <h1>Hitung <span>Diskon</span></h1>
+      <p>Tahu total belanja sebelum sampai kasir.</p>
+    </header>
+
+    <section class="card" aria-label="Form diskon">
+      <label for="harga">Harga barang</label>
+      <div class="field">
+        <span class="prefix">Rp</span>
+        <input id="harga" type="number" min="0" inputmode="numeric" placeholder="250000">
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="persen">Diskon</label>
+          <div class="field">
+            <input id="persen" type="number" min="0" max="100" inputmode="decimal" placeholder="30">
+            <span class="suffix">%</span>
+          </div>
+        </div>
+        <div>
+          <label for="qty">Jumlah</label>
+          <div class="field">
+            <input id="qty" type="number" min="1" value="1" inputmode="numeric">
+            <span class="suffix">pcs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chips" id="chips" aria-label="Pilihan diskon cepat">
+        <button type="button" class="chip" data-v="10">10%</button>
+        <button type="button" class="chip" data-v="25">25%</button>
+        <button type="button" class="chip" data-v="50">50%</button>
+        <button type="button" class="chip" data-v="70">70%</button>
+      </div>
+
+      <p class="err" id="err" role="alert"></p>
+    </section>
+
+    <section class="receipt" id="receipt" aria-live="polite">
+      <div class="receipt-top">
+        <span class="badge" id="badge">Hemat 0%</span>
+        <span class="old" id="normal">Rp 0</span>
+      </div>
+      <div class="label">Total yang dibayar</div>
+      <div class="total" id="bayar">Rp 0</div>
+
+      <div class="bar" aria-hidden="true">
+        <div class="bar-fill" id="barFill"></div>
+      </div>
+      <div class="bar-legend">
+        <span>Bayar <b id="pBayar">100</b>%</span>
+        <span>Hemat <b id="pHemat">0</b>%</span>
+      </div>
+
+      <div class="line"><span>Harga normal</span><b id="normal2">Rp 0</b></div>
+      <div class="line save"><span>Anda hemat</span><b id="hemat">Rp 0</b></div>
+
+      <button type="button" class="reset" id="reset">Hitung ulang</button>
+    </section>
+
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
